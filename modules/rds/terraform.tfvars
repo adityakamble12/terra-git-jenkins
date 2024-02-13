@@ -1,0 +1,19 @@
+
+cluster_identifier        = "test-adi-db"
+engine                    = "aurora-postgresql"
+engine_version            = "11.9"
+engine_mode               = "serverless"
+db_name                   = "postgres"
+master_username           = "postgres"
+master_password           = "password"
+final_snapshot_identifier = "my-final-snapshot"
+skip_final_snapshot       = true
+backup_retention_period   = 14
+deletion_protection       = true
+auto_pause                = true
+max_capacity              = 4
+min_capacity              = 2
+seconds_until_auto_pause  = 300
+timeout_action            = "RollbackCapacityChange"
+enable_http_endpoint      = true
+subnet_ids                = ["subnet-02423996eaa22ea36", "subnet-032c25698ddfd1656"] # Replace these with your actual subnet IDs
