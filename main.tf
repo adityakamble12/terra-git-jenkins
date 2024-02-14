@@ -27,8 +27,8 @@ terraform {
 
 # Configure the AWS Provider
 provider "aws" {
-  shared_config_files      = ["/home/oem/.aws/config"]
-  shared_credentials_files = ["/home/oem/.aws/credentials"]
+  shared_config_files      = ["/var/lib/jenkins/.aws/config"]
+  shared_credentials_files = ["/var/lib/jenkins/.aws/credentials"]
   profile                  = "default"
 }
 
