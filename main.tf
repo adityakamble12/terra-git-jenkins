@@ -35,7 +35,7 @@ provider "aws" {
 
 # S3 module:
 module "s3_bucket" {
-  source = "./terra-git-jenkins/modules/s3"
+  source = "./modules/s3"
 
   bucket_name           = "testy-buccy"
   status_versioning     = "Enabled"
@@ -57,7 +57,7 @@ module "s3_bucket" {
 
 # RDS module:
 module "aurora_db" {
-  source = "./terra-git-jenkins/modules/rds"
+  source = "./modules/rds"
 
   cluster_identifier        = "test-adi-db"
   engine                    = "aurora-postgresql"
@@ -82,7 +82,7 @@ module "aurora_db" {
 
 # cOGNITO module:
 module "my_cognito" {
-  source = "./terra-git-jenkins/modules/cognito"
+  source = "./modules/cognito"
 
   userpool_name            = "my-userpool"
   email_attribute_name     = "Email"
@@ -125,7 +125,7 @@ module "my_cognito" {
 
 # API GATEWAY module:
 module "my_apigateway" {
-  source = "./terra-git-jenkins/modules/apigateway"
+  source = "./modules/apigateway"
 
   api_name        = "MyRESTAPI"
   api_description = "Custom description for the API"
@@ -142,7 +142,7 @@ module "my_apigateway" {
 
 #ALB module:
 module "my_module" {
-  source = "./terra-git-jenkins/modules/alb_asg"
+  source = "./modules/alb_asg"
 
   # Create Security Groups
   security_group_name = "my-terra-alb" # Replace with your desired security group name
@@ -260,7 +260,7 @@ module "my_module" {
 /*
 # SES module:
 module "ses" {
-  source = "./terra-git-jenkins/modules/ses"
+  source = "./modules/ses"
 
 email_identity = "kambleaditya256@gmail.com"
 
@@ -296,7 +296,7 @@ add_header_actions = [
 
 # CLOUDFRONT module:
 module "my_cloudfront" {
-  source = "./terra-git-jenkins/modules/cloudfront"
+  source = "./modules/cloudfront"
 
   bucket_id               = module.s3_bucket.bucket_id
   block_public_acls       = true
