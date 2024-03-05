@@ -50,10 +50,30 @@ module "s3_bucket" {
 
   tags = {
     Name        = "ExampleBucket"
-    Environment = "Production"
+    Environment = "Dev"
   }
 }
 
+# Second S3 bucket
+module "s3_bucket_2" {
+  source = "./modules/s3"
+
+  bucket_name           = "testy-neo-buccy"
+  status_versioning     = "Enabled"
+  logging_target_bucket = "testy-neo-buccy"
+  logging_target_prefix = "logs/"
+
+  # S3 Bucket Access Block
+  block_public_acls       = true
+  block_public_policy     = true
+  ignore_public_acls      = true
+  restrict_public_buckets = true
+
+  tags = {
+    Name        = "AnotherBucket"
+    Environment = "Dev"
+  }
+}
 
 # RDS module:
 module "aurora_db" {
